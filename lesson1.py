@@ -10,18 +10,20 @@
 
 # # #################################################################################
 # 2)написати прогу яка вибирає зі введеної строки числа і виводить їх
-# так як вони написані
-# наприклад:
-#   st = 'as 23 fdfdg544 34' #введена строка
-#   23, 544, 34              #вивело в консолі
+# так як вони написані st = 'as 23 fdfdg544 34' #введена строка
 
+# st = 'as 23 fd22fdg544 34'
+# print(''.join(ch if ch.isdigit() else '.' for ch in st))
 
+# з бібліотекою
 # import re
 # st = 'as 23 fdfdg544 asd123asd'
 # num = re.findall(r'\d+', st)
 # res = ', '.join(num)
 # print(res)
 #
+
+
 
 # #################################################################################
 #
@@ -46,7 +48,7 @@
 
 # function
 #
-#???????????????????????????????????????????????????????????????????????????????????????????????? - створити функцію яка виводить ліст
+# - створити функцію яка виводить ліст
 # def print_list(lst):
 #     print(lst)
 # print_list([1, 2, 3])
@@ -114,91 +116,86 @@
 # 3) вывести табличку множення за допомогою цикла while
 # 4) переробити це завдання під меню
 
-
-def find_min(lst):
-    # Знайти мінімальне число в списку.
-    return min(lst)
-
-
-def remove_duplicates(lst):
-    # Видалити всі дублікати з списку.
-    return list(set(lst))
-
-
-def replace_every_fourth(lst):
-    # Замінити кожне 4-те значення на 'X'.
-    return ['X' if (i + 1) % 4 == 0 else x for i, x in enumerate(lst)]
-
-
-def print_empty_square(size):
-    # вивести пустий квадрат зі стороною size.
-    for i in range(size):
-        if i == 0 or i == size - 1:
-            print('*' * size)
-        else:
-            print('*' + ' ' * (size - 2) + '*')
-
-
-def multiplication_table():
-    # Вивести таблицю множення за допомогою циклу while.
-    i = 1
-    while i <= 10:
-        j = 1
-        while j <= 10:
-            print(f'{i * j:4}', end=' ')
-            j += 1
-        print()
-        i += 1
-
-
-def menu():
-    # Головне меню програми.
-    while True:
-        print("\nГоловне меню:")
-        print("1. Робота зі списком")
-        print("2. Пустий квадрат")
-        print("3. Таблиця множення")
-        print("4. Вихід")
-
-        choice = input("Введіть номер пункту меню: ")
-
-        if choice == '1':
-            sub_menu()
-        elif choice == '2':
-            size = int(input("Введіть розмір сторони квадрата: "))
-            print_empty_square(size)
-        elif choice == '3':
-            multiplication_table()
-        elif choice == '4':
-            print("Вихід з програми.")
-            break
-        else:
-            print("Невірний вибір, спробуйте ще раз.")
-
-
-def sub_menu():
-    # Підменю для роботи зі списком.
-    lst = [22, 3, 5, 2, 8, 2, -23, 8, 23, 5]
-    while True:
-        print("\nПідменю роботи зі списком:")
-        print("1. Знайти мінімальне число")
-        print("2. Видалити всі дублікати")
-        print("3. Замінити кожне 4-те значення на 'X'")
-        print("4. Повернутися до головного меню")
-
-        sub_choice = input("Введіть номер пункту підменю: ")
-
-        if sub_choice == '1':
-            print("Мінімальне число в списку:", find_min(lst))
-        elif sub_choice == '2':
-            print("Список без дублікатів:", remove_duplicates(lst))
-        elif sub_choice == '3':
-            print("Список після заміни кожного 4-го значення:", replace_every_fourth(lst))
-        elif sub_choice == '4':
-            break
-        else:
-            print("Невірний вибір, спробуйте ще раз.")
-
-
-# Запуск програми
-menu()
+# Знайти мінімальне число в списку.
+# def find_min(lst):
+#     return min(lst)
+#
+#     # Видалити всі дублікати з списку.
+# def remove_duplicates(lst):
+#     return list(set(lst))
+#
+#     # Замінити кожне 4-те значення на 'X'.
+# def replace_every_fourth(lst):
+#     return ['X' if (i + 1) % 4 == 0 else x for i, x in enumerate(lst)]
+#
+#     # вивести пустий квадрат зі стороною size.
+# def print_empty_square(size):
+#     for i in range(size):
+#         if i == 0 or i == size - 1:
+#             print('*' * size)
+#         else:
+#             print('*' + ' ' * (size - 2) + '*')
+#
+#     # Вивести таблицю множення за допомогою циклу while.
+# def multiplication_table():
+#     i = 1
+#     while i <= 10:
+#         j = 1
+#         while j <= 10:
+#             print(f'{i * j:4}', end=' ')
+#             j += 1
+#         print()
+#         i += 1
+#
+#
+# def menu():
+#     # Головне меню програми.
+#     while True:
+#         print("\nГоловне меню:")
+#         print("1. Робота зі списком")
+#         print("2. Пустий квадрат")
+#         print("3. Таблиця множення")
+#         print("4. Вихід")
+#
+#         choice = input("Введіть номер пункту меню: ")
+#
+#         if choice == '1':
+#             sub_menu()
+#         elif choice == '2':
+#             size = int(input("Введіть розмір сторони квадрата: "))
+#             print_empty_square(size)
+#         elif choice == '3':
+#             multiplication_table()
+#         elif choice == '4':
+#             print("Вихід з програми.")
+#             break
+#         else:
+#             print("Невірний вибір, спробуйте ще раз.")
+#
+#
+# def sub_menu():
+#     # Підменю для роботи зі списком.
+#     lst = [22, 3, 5, 2, 8, 2, -23, 8, 23, 5]
+#     while True:
+#         print("\nПідменю роботи зі списком:")
+#         print("1. Знайти мінімальне число")
+#         print("2. Видалити всі дублікати")
+#         print("3. Замінити кожне 4-те значення на 'X'")
+#         print("4. Повернутися до головного меню")
+#
+#         sub_choice = input("Введіть номер пункту підменю: ")
+#
+#         if sub_choice == '1':
+#             print("Мінімальне число в списку:", find_min(lst))
+#         elif sub_choice == '2':
+#             print("Список без дублікатів:", remove_duplicates(lst))
+#         elif sub_choice == '3':
+#             print("Список після заміни кожного 4-го значення:", replace_every_fourth(lst))
+#         elif sub_choice == '4':
+#             break
+#         else:
+#             print("Невірний вибір, спробуйте ще раз.")
+#
+#
+# # Запуск програми
+# menu()
