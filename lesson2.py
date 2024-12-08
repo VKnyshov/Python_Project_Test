@@ -7,19 +7,16 @@ from typing import Callable, List, Tuple
 
 
 def notebook() -> Tuple[Callable[[str], None], Callable[[], List[str]]]:
-    todo_list: List[str] = []  # Типізація списку: список рядків
+    todo_list: List[str] = []  # Типізація списку рядків
 
     def add_todo(todo: str) -> None:
-        """Додає нову справу до списку."""
-        todo_list.append(todo)
+        todo_list.append(todo) #Додає нову справу до списку
 
     def get_all() -> List[str]:
-        """Повертає всі справи."""
-        return todo_list
+        return todo_list.copy() #Повертає всі справи.
 
     return add_todo, get_all  # Повертаємо обидві функції як кортеж
 
-# Використання:
 add_todo, get_all = notebook()
 
 add_todo("Хліб")
@@ -40,10 +37,7 @@ print(get_all())
 # expanded_form(70304) # return '70000 + 300 + 4'
 from typing import List
 
-def expanded_form(num: int) -> str:
-    """
-    Повертає число у вигляді суми розрядів.
-    """
+def expanded_form(num: int) -> str: #Повертає число у вигляді суми розрядів.
     digits: List[str] = []  # Список для збереження розрядів у вигляді рядків
     num_str: str = str(num)  # Перетворюємо число на рядок для ітерації
     length: int = len(num_str)  # Довжина числа
@@ -55,10 +49,9 @@ def expanded_form(num: int) -> str:
 
     return ' + '.join(digits)  # З'єднуємо розряди у рядок із роздільником " + "
 
-# Приклади використання:
-print(expanded_form(12))     # '10 + 2'
-print(expanded_form(42))     # '40 + 2'
-print(expanded_form(70304))  # '70000 + 300 + 4'
+print(expanded_form(12))
+print(expanded_form(42))
+print(expanded_form(70304))
 
 # 4) створити декоратор котрий буде підраховувати скільки разів була запущена функція продекорована цим декоратором, та буде виводити це значення після виконання функцій
 
@@ -77,10 +70,7 @@ print(expanded_form(70304))  # '70000 + 300 + 4'
 ############################################
 from typing import Callable, Dict
 
-def decor(func: Callable) -> Callable:
-    """
-    Декоратор для підрахунку викликів функції.
-    """
+def decor(func: Callable) -> Callable: #Декоратор для підрахунку викликів функції.
     call_count: Dict[str, int] = {}  # Словник для збереження кількості викликів
 
     def wrapper(*args, **kwargs):
@@ -92,7 +82,6 @@ def decor(func: Callable) -> Callable:
 
     return wrapper
 
-# Приклад використання:
 @decor
 def fun1():
     # print('func1')
